@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Space</title>
+  	<h3>NOTE:- PLEASE OPEN THE TAB IN DESTOP MODE...</h3>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #faf3f3;
+            overflow: hidden;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            height: 1px;
+            width: 1px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: -42vw -4vh 0px 0px #fff,25vw -41vh 0px 0px #fff,-20vw 49vh 0px 1px #fff,5vw 40vh 1px 1px #fff,29vw 19vh 1px 0px #fff,-44vw -13vh 0px 0px #fff,46vw 41vh 0px 1px #fff,-3vw -45vh 0px 1px #fff,47vw 35vh 1px 0px #fff,12vw -8vh 1px 0px #fff,-34vw 48vh 1px 1px #fff,32vw 26vh 1px 1px #fff,32vw -41vh 1px 1px #fff,0vw 37vh 1px 1px #fff,34vw -26vh 1px 0px #fff,-14vw -49vh 1px 0px #fff,-12vw 45vh 0px 1px #fff,-44vw -33vh 0px 1px #fff,-13vw 41vh 0px 0px #fff,-36vw -11vh 0px 1px #fff,-23vw -24vh 1px 0px #fff,-38vw -27vh 0px 1px #fff,16vw -19vh 0px 0px #fff,28vw 33vh 1px 0px #fff,-49vw -4vh 0px 0px #fff,16vw 32vh 0px 1px #fff,36vw -18vh 1px 0px #fff,-25vw -30vh 1px 0px #fff,-23vw 24vh 0px 1px #fff,-2vw -35vh 1px 1px #fff,-25vw 9vh 0px 0px #fff,-15vw -34vh 0px 0px #fff,-8vw -19vh 1px 0px #fff,-20vw -20vh 1px 1px #fff,42vw 50vh 0px 1px #fff,-32vw 10vh 1px 0px #fff,-23vw -17vh 0px 0px #fff,44vw 15vh 1px 0px #fff,-40vw 33vh 1px 1px #fff,-43vw 8vh 0px 0px #fff,-48vw -15vh 1px 1px #fff,-24vw 17vh 0px 0px #fff,-31vw 50vh 1px 0px #fff,36vw -38vh 0px 1px #fff,-7vw 48vh 0px 0px #fff,15vw -32vh 0px 0px #fff,29vw -41vh 0px 0px #fff,2vw 37vh 1px 0px #fff,7vw -40vh 1px 1px #fff,15vw 18vh 0px 0px #fff,25vw -13vh 1px 1px #fff,-46vw -12vh 1px 1px #fff,-18vw 22vh 0px 0px #fff,23vw -9vh 1px 0px #fff,50vw 12vh 0px 1px #fff,45vw 2vh 0px 0px #fff,14vw -48vh 1px 0px #fff,23vw 43vh 0px 1px #fff,-40vw 16vh 1px 1px #fff,20vw -31vh 0px 1px #fff,-17vw 44vh 1px 1px #fff,18vw -45vh 0px 0px #fff,33vw -6vh 0px 0px #fff,0vw 7vh 0px 1px #fff,-10vw -18vh 0px 1px #fff,-19vw 5vh 1px 0px #fff,1vw 42vh 0px 0px #fff,22vw 48vh 0px 1px #fff,39vw -8vh 1px 1px #fff,-6vw -42vh 1px 0px #fff,-47vw 34vh 0px 0px #fff,-46vw 19vh 0px 1px #fff,-12vw -32vh 0px 0px #fff,-45vw -38vh 0px 1px #fff,-28vw 18vh 1px 0px #fff,-38vw -46vh 1px 1px #fff,49vw -6vh 1px 1px #fff,-28vw 18vh 1px 1px #fff,10vw -24vh 0px 1px #fff,-5vw -11vh 1px 1px #fff,33vw -8vh 1px 0px #fff,-16vw 17vh 0px 0px #fff,18vw 27vh 0px 1px #fff,-8vw -10vh 1px 1px #fff;
+            animation: zoom 16s alternate infinite; 
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.5);
+            }
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            background: #888;
+        }
+
+        #moon {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #cfcfcf, #888);
+            top: 20%;
+            left: 60%;
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            animation: orbit 12s infinite linear;
+        }
+
+        #earth {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #4a90e2, #0077be);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 50%;
+            left: 40%;
+            animation: orbit 20s infinite linear;
+        }
+
+        #mars {
+            width: 85px;
+            height: 85px;
+            background: radial-gradient(circle, #e27a3f, #b35129);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 30%;
+            left: 70%;
+            animation: orbit 25s infinite linear;
+        }
+        #s {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #afc56c, #81ace3);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 70%;
+            left: 30%;
+            animation: orbit 20s infinite linear;
+        }
+        #u {
+            width: 65px;
+            height: 65px;
+            background: radial-gradient(circle, #e9b24a, #81ace3);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 35%;
+            left: 60%;
+            animation: orbit 16s infinite linear;
+        }
+        #n{
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #de6f2e, #81ace3);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 50%;
+            left: 70%;
+            animation: orbit 18s infinite linear;
+        }
+        #m{
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #cfcfcf, #888);
+            top: 20%;
+            left: 60%;
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            animation: orbit 12s infinite linear;
+        }
+
+        #o {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #4a90e2, #0077be);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 50%;
+            left: 40%;
+            animation: orbit 20s infinite linear;
+        }
+
+        #n {
+            width: 85px;
+            height: 85px;
+            background: radial-gradient(circle, #52e73b, #4927ba);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 70%;
+            left: 70%;
+            animation: orbit 20s infinite linear;
+        }
+        #v {
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #afc56c, #81ace3);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 70%;
+            left: 30%;
+            animation: orbit 20s infinite linear;
+        }
+        #i {
+            width: 65px;
+            height: 65px;
+            background: radial-gradient(circle, #070501, #81ace3);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 75%;
+            left: 60%;
+            animation: orbit 15s infinite linear;
+        }
+        #s {
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #48cbeb, #1d77eb);
+            
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
+            top: 90%;
+            left: 70%;
+            animation: orbit 18s infinite linear;
+        }
+
+
+        /* More planets can be added similarly */
+        
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
+    
+        body {
+            background: linear-gradient(to right, #f2f1f2, #0d0d0e);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        header {
+            
+            color: #090909;
+            padding: 15px 30px;
+            border-radius: 8px;
+           
+            margin-bottom: 20px;
+            text-align: center;
+           
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .nav-button {
+            background: linear-gradient(to right, #2b2e85, #4d5354);
+            background-color: #1e01fd50;
+            color: #f9f6f6;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            background-color: #fa0404;
+            transform: scale(1.05);
+        }
+
+        .game-container {
+            
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 8px rgba(6, 6, 6, 0.99);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 1s;
+        }
+
+        .game-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #0e0d0d;
+            font-weight: 600;
+        }
+
+        .choice-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .choice {
+            background: linear-gradient(to right, #6e6f6a, #2b2969);
+            background-color: #ccff00;
+            color: #f5f8f9;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .choice:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .instructions {
+            margin: 20px 0;
+            font-size: 1em;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .ball {
+            width: 60px;
+            height: 60px;
+            background-color: #63fe03;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .ball:hover {
+            background-color: #61f505;
+        }
+
+        .ball.clicked {
+            background-color: #fc0404;
+            cursor: not-allowed;
+            transform: scale(0.9);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.3em;
+            color: #000306;
+            font-weight: 650;
+        }
+
+        .restart-button {
+            background: linear-gradient(to right, #6e6f6a, #1d1a88);
+            background-color: #28a745;
+            color: #fefdff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .restart-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .back-button-container {
+            margin-top: 20px;
+        }
+
+        .back-button {
+            background: linear-gradient(to right, #6e6f6a, #1d1a88);
+            background-color: #0f0e0e;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.937);
+        }
+
+        .back-button:hover {
+            background-color: #0adbf2;
+            transform: scale(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .choice-container {
+                flex-direction: column;
+            }
+
+            .choice {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .ball {
+                width: 50px;
+                height: 50px;
+                font-size: 1em;
+            }
+
+            .game-container {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ball {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9em;
+            }
+
+            .choice {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            .game-container {
+                padding: 15px;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GAME-SPACE</h1>
+    </header>
+    <div class="main"></div>
+    <div id="moon" class="planet"></div>
+    <div id="earth" class="planet"></div>
+    <div id="mars" class="planet"></div>
+    <div id="v" class="planet"></div>
+    <div id="i" class="planet"></div>
+    <div id="s" class="planet"></div>
+    <div id="m" class="planet"></div>
+    <div id="u" class="planet"></div>
+    <div id="n" class="planet"></div>
+
+    <div class="navigation">
+        <button class="nav-button" onclick="showGame('rps')">ROCK PAPER SCISSORS</button>
+        <button class="nav-button" onclick="showGame('guess')">GUESS THE NUMBER</button>
+    </div>
+
+    <!-- Rock Paper Scissors Game -->
+    <div class="game-container" id="rps-game">
+        <h2> CHOOSE YOUR MOVE FIRST</h2>
+        <div class="choice-container">
+            <button class="choice" id="rock">ROCK</button>
+            <button class="choice" id="paper">PAPER</button>
+            <button class="choice" id="scissors">SCISSORS</button>
+        </div>
+        <div class="result-container">
+            <h2>RESULT</h2>
+            <p id="rps-result"></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Round</th>
+                        <th>Your Choice</th>
+                        <th>Computer's Choice</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody id="rps-scoreboard"></tbody>
+            </table>
+            <button class="restart-button" id="rps-restart">RESTART</button>
+        </div>
+    </div>
+
+    <!-- Guess the Number Game -->
+    <div class="game-container" id="guess-game">
+        <h1>GUESS THE NUMBER</h1>
+        <h3>PLEASE SELECT A MODE</h3>
+        <div class="mode-select">
+            <div class="mode-buttons">
+                <button class="mode-button" onclick="startGame('easy')">EASY</button>
+                <button class="mode-button" onclick="startGame('medium')">MEDIUM</button>
+                <button class="mode-button" onclick="startGame('hard')">HARD</button>
+            </div>
+        </div>
+        <div class="game-board"></div>
+        <p class="result"></p>
+        <div class="back-button-container">
+            <button class="back-button" onclick="resetGame()">BACK</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:viveksawji@gmail.com">viveksawji@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/vivekx___" target="_blank">@vivekx___</a></p>
+    <p>&copy; 2024 GAMES-SPACE. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://twitter.com/VivekSawji" target="_blank" class="fab fa-twitter"></a>
+        <a href="https://linkedin.com/in/vivek sawji" target="_blank" class="fab fa-linkedin"></a>
+    </div>
+</footer>
+
+
+    <script>
+        // Rock Paper Scissors Game Logic
+        const rockButton = document.getElementById('rock');
+        const paperButton = document.getElementById('paper');
+        const scissorsButton = document.getElementById('scissors');
+        const rpsResultElement = document.getElementById('rps-result');
+        const rpsScoreboardElement = document.getElementById('rps-scoreboard');
+        const rpsRestartButton = document.getElementById('rps-restart');
+
+        let rpsUserChoice;
+        let rpsComputerChoice;
+        let rpsUserScore = 0;
+        let rpsComputerScore = 0;
+        let rpsRound = 0;
+
+        rockButton.addEventListener('click', () => {
+            rpsUserChoice = 'Rock';
+            playRPSGame();
+        });
+
+        paperButton.addEventListener('click', () => {
+            rpsUserChoice = 'Paper';
+            playRPSGame();
+        });
+
+        scissorsButton.addEventListener('click', () => {
+            rpsUserChoice = 'Scissors';
+            playRPSGame();
+        });
+
+        rpsRestartButton.addEventListener('click', resetRPSGame);
+
+        function playRPSGame() {
+            rpsRound++;
+            rpsComputerChoice = getRPSComputerChoice();
+            const result = getRPSResult(rpsUserChoice, rpsComputerChoice);
+            rpsResultElement.textContent = result;
+            updateRPSScoreboard(rpsUserChoice, rpsComputerChoice, result);
+            checkRPSGameEnd();
+        }
+
+        function getRPSComputerChoice() {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function getRPSResult(user, computer) {
+            if (user === computer) {
+                return 'It\'s a tie!';
+            } else if (
+                (user === 'Rock' && computer === 'Scissors') ||
+                (user === 'Paper' && computer === 'Rock') ||
+                (user === 'Scissors' && computer === 'Paper')
+            ) {
+                rpsUserScore++;
+                return 'You win!';
+            } else {
+                rpsComputerScore++;
+                return 'You lose!';
+            }
+        }
+
+        function updateRPSScoreboard(user, computer, result) {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${rpsRound}</td>
+                <td>${user}</td>
+                <td>${computer}</td>
+                <td>${result}</td>
+            `;
+            rpsScoreboardElement.appendChild(newRow);
+        }
+
+        function checkRPSGameEnd() {
+            if (rpsRound === 5) {
+                if (rpsUserScore > rpsComputerScore) {
+                    rpsResultElement.textContent = 'Game over! You won!';
+                } else if (rpsUserScore < rpsComputerScore) {
+                    rpsResultElement.textContent = 'Game over! You lost!';
+                } else {
+                    rpsResultElement.textContent = 'Game over! It\'s a tie!';
+                }
+                rockButton.disabled = true;
+                paperButton.disabled = true;
+                scissorsButton.disabled = true;
+                rpsRestartButton.style.display = 'inline-block';
+            }
+        }
+
+        function resetRPSGame() {
+            rpsUserScore = 0;
+            rpsComputerScore = 0;
+            rpsRound = 0;
+            rpsResultElement.textContent = '';
+            rpsScoreboardElement.innerHTML = '';
+            rockButton.disabled = false;
+            paperButton.disabled = false;
+            scissorsButton.disabled = false;
+            rpsRestartButton.style.display = 'none';
+        }
+
+        // Guess the Number Game Logic
+        let computerChoice;
+        let attempts;
+        let currentMode;
+
+        function startGame(mode) {
+            currentMode = mode;
+            let maxNumber;
+            switch (mode) {
+                case 'easy':
+                    maxNumber = 15;
+                    break;
+                case 'medium':
+                    maxNumber = 25;
+                    break;
+                case 'hard':
+                    maxNumber = 50;
+                    break;
+                default:
+                    return;
+            }
+            computerChoice = Math.floor(Math.random() * maxNumber) + 1;
+            attempts = 5;
+            generateBalls(maxNumber);
+            document.querySelector('.result').textContent = '';
+            document.querySelector('.mode-select').style.display = 'none';
+            document.querySelector('.game-board').style.display = 'grid';
+            setActiveModeButton(mode);
+        }
+
+        function generateBalls(maxNumber) {
+            const gameBoard = document.querySelector('.game-board');
+            gameBoard.innerHTML = '';
+            for (let i = 1; i <= maxNumber; i++) {
+                const ball = document.createElement('div');
+                ball.classList.add('ball');
+                ball.textContent = i;
+                ball.onclick = () => checkChoice(i, ball);
+                gameBoard.appendChild(ball);
+            }
+        }
+
+        function checkChoice(userChoice, ballElement) {
+            const resultDiv = document.querySelector('.result');
+            if (userChoice === computerChoice) {
+                resultDiv.textContent = 'Congratulations! You guessed the correct number!';
+                disableBalls();
+            } else {
+                ballElement.classList.add('clicked');
+                ballElement.onclick = null;
+                attempts--;
+                if (attempts > 0) {
+                    let hint = userChoice < computerChoice ? 'bigger' : 'smaller';
+                    resultDiv.textContent = `Wrong guess! The correct number is ${hint}. Attempts left: ${attempts}`;
+                } else {
+                    resultDiv.textContent = `Game over! The correct number was ${computerChoice}`;
+                    disableBalls();
+                }
+            }
+        }
+
+        function disableBalls() {
+            const balls = document.querySelectorAll('.ball');
+            balls.forEach(ball => {
+                ball.onclick = null;
+            });
+        }
+
+        function setActiveModeButton(activeMode) {
+            const buttons = document.querySelectorAll('.mode-button');
+            buttons.forEach(button => {
+                button.classList.toggle('active', button.textContent.includes(activeMode));
+            });
+        }
+
+        function resetGame() {
+            document.querySelector('.mode-select').style.display = 'flex';
+            document.querySelector('.game-board').style.display = 'none';
+            document.querySelector('.result').textContent = '';
+            document.querySelectorAll('.ball').forEach(ball => ball.classList.remove('clicked'));
+        }
+
+        function showGame(game) {
+            if (game === 'rps') {
+                document.getElementById('rps-game').style.display = 'block';
+                document.getElementById('guess-game').style.display = 'none';
+            } else if (game === 'guess') {
+                document.getElementById('rps-game').style.display = 'none';
+                document.getElementById('guess-game').style.display = 'block';
+            }
+        }
+
+        
+        window.onload = () => {
+            showGame('rps');
+            resetGame();
+            resetRPSGame();
+        };
+    
+       
+    </script>
+</body>
+</html>
